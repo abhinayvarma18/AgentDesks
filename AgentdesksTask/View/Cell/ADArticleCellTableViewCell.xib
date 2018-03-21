@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ADArticleCellTableViewCell" rowHeight="136" id="KGk-i7-Jjw" customClass="ADArticleCellTableViewCell" customModule="AgentdesksTask" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="378" height="300"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="378" height="299.5"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DwK-zM-vH9" customClass="ImageCacher" customModule="AgentdesksTask" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="110" width="120" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="ePL-u9-0gL"/>
+                            <constraint firstAttribute="height" constant="80" id="hpk-Rs-auq"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHz-rP-Pfv">
+                        <rect key="frame" x="139" y="51.5" width="223" height="202"/>
+                        <string key="text">Today IKEA has announced that its IKEA Place augmented reality app, previously exclusive to iOS, is now available for Android. With it, prospective furnitu... by Ryne Hager in Applications, News, Videos </string>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbW-5t-5ws">
+                        <rect key="frame" x="139" y="258.5" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="asdasdadasdasdadsadsdadasdad" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yw-KF-K4P">
+                        <rect key="frame" x="139" y="22" width="223" height="21.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="FbW-5t-5ws" secondAttribute="bottom" constant="10" id="4Rh-fc-klv"/>
+                    <constraint firstItem="DwK-zM-vH9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="57m-Nk-Mre"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FbW-5t-5ws" secondAttribute="trailing" id="6WC-c2-9La"/>
+                    <constraint firstItem="DwK-zM-vH9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Crw-rS-QLt"/>
+                    <constraint firstItem="BHz-rP-Pfv" firstAttribute="leading" secondItem="7yw-KF-K4P" secondAttribute="leading" id="DVA-Ii-tMO"/>
+                    <constraint firstItem="7yw-KF-K4P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="11" id="FhT-WM-99d"/>
+                    <constraint firstItem="BHz-rP-Pfv" firstAttribute="top" secondItem="7yw-KF-K4P" secondAttribute="bottom" constant="8" id="Wr9-89-Boo"/>
+                    <constraint firstItem="BHz-rP-Pfv" firstAttribute="leading" secondItem="DwK-zM-vH9" secondAttribute="trailing" constant="19" id="ejg-Gu-MvB"/>
+                    <constraint firstItem="FbW-5t-5ws" firstAttribute="top" secondItem="BHz-rP-Pfv" secondAttribute="bottom" constant="5" id="iHQ-hT-fU9"/>
+                    <constraint firstItem="FbW-5t-5ws" firstAttribute="leading" secondItem="BHz-rP-Pfv" secondAttribute="leading" id="nIW-8Q-tLN"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="BHz-rP-Pfv" secondAttribute="trailing" id="xFt-rQ-LqT"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="7yw-KF-K4P" secondAttribute="trailing" id="y3N-kc-EDH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="articleDescription" destination="BHz-rP-Pfv" id="Fxe-xR-zwc"/>
+                <outlet property="articleImage" destination="DwK-zM-vH9" id="XMz-9h-rHq"/>
+                <outlet property="articleTitle" destination="7yw-KF-K4P" id="ErM-sg-GhX"/>
+                <outlet property="articleUrl" destination="FbW-5t-5ws" id="WZS-7I-0BH"/>
+            </connections>
+            <point key="canvasLocation" x="64" y="85"/>
+        </tableViewCell>
+    </objects>
+</document>
