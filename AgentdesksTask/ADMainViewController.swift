@@ -74,7 +74,7 @@ class ADMainViewController: UIViewController {
                     for index in (self.currentLoadedDataCount*5)..<(self.instanceArticles?.count ?? 0)! {
                         self.mainTableView.insertRows(at: [IndexPath.init(row: index, section: 0)], with: UITableViewRowAnimation.fade)
                     }
-                    if((self.currentLoadedDataCount*5) == (self.instanceArticles?.count ?? 0)!){
+                    if((self.currentLoadedDataCount*5) != (self.instanceArticles?.count ?? 0)!){
                         self.currentLoadedDataCount += 1
                     }
                     self.mainTableView.endUpdates()
