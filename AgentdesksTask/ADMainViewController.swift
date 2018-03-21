@@ -122,11 +122,13 @@ extension ADMainViewController:UITableViewDelegate,UITableViewDataSource {
         let endScrolling: CGFloat = scrollView.contentOffset.y + scrollView.frame.size.height
         
         if(endScrolling < self.view.frame.size.height) {
-            databaseHandler.resetAllRecords()
-            self.instanceArticles = []
-            currentLoadedDataCount = 0
-            self.mainTableView.reloadData()
-            self.loadData(5)
+            if(isServerReachable()){
+                databaseHandler.resetAllRecords()
+                self.instanceArticles = []
+                currentLoadedDataCount = 0
+                self.mainTableView.reloadData()
+                self.loadData(5)
+            }
         }else {
         
             if(currentLoadedDataCount * 5 > (self.instanceArticles?.count ?? 0)) {
