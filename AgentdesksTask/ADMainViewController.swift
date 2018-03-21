@@ -66,7 +66,7 @@ class ADMainViewController: UIViewController {
     func loadData(_ pageSize:Int) {
         ADActivityLoaderView.sharedInstance.showLoader()
         networkHandler.fetchArticles(page: currentLoadedDataCount, pageSize: pageSize, completionHandler: {(articles) in
-            if(articles != nil && (articles?.isEmpty)!) {
+            if(articles != nil && !(articles?.isEmpty)!) {
                 print("new elements in local instance added")
                 self.instanceArticles = self.instanceArticles! + articles!
                 DispatchQueue.main.async {
