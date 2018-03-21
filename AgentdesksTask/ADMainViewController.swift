@@ -82,6 +82,7 @@ class ADMainViewController: UIViewController {
                 }
             }else{
                 print("server returned nothing")
+                ADActivityLoaderView.sharedInstance.removeLoader()
             }
             print("final size of array is \(self.instanceArticles?.count ?? 0)")
            
