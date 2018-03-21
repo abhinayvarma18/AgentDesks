@@ -121,39 +121,47 @@ extension ADMainViewController:UITableViewDelegate,UITableViewDataSource {
     {
         let endScrolling: CGFloat = scrollView.contentOffset.y + scrollView.frame.size.height
         
-        if(currentLoadedDataCount * 5 > (self.instanceArticles?.count ?? 0)) {
-            print("I got returned safely")
-            return
-        }
+        if(endScrolling < self.view.frame.size.height) {
+            databaseHandler.resetAllRecords()
+            self.instanceArticles = []
+            currentLoadedDataCount = 0
+            self.mainTableView.reloadData()
+            self.loadData(5)
+        }else {
         
+            if(currentLoadedDataCount * 5 > (self.instanceArticles?.count ?? 0)) {
+                print("I got returned safely")
+                return
+            }
         
-        if (endScrolling >= scrollView.contentSize.height - 1)
-        {
-            let articlesFromDb = databaseHandler.fetchArticlesFromDB()
-            if(articlesFromDb == nil || articlesFromDb?.count == 0 || (articlesFromDb?.count ?? 0) <= currentLoadedDataCount * 5) {
-                if(isServerReachable()) {
-                    print("loadingMoreDataFromServer")
-                    self.loadData(5)
-                }else{
-                    print("no internet no db saved")
-                }
-            }else{
-                print("loadingMoreDataFromDB")
-                let models = converFirstFive(articlesFromDb!)
-                if(models.count != 0) {
-                    instanceArticles = instanceArticles! + models
-                    self.mainTableView.beginUpdates()
-                    for index in (self.currentLoadedDataCount * 5 ..< (self.instanceArticles?.count ?? 0)) {
-                        self.mainTableView.insertRows(at: [IndexPath.init(row: index, section: 0)], with: UITableViewRowAnimation.fade)
+            
+            if (endScrolling >= scrollView.contentSize.height - 1)
+            {
+                let articlesFromDb = databaseHandler.fetchArticlesFromDB()
+                if(articlesFromDb == nil || articlesFromDb?.count == 0 || (articlesFromDb?.count ?? 0) <= currentLoadedDataCount * 5) {
+                    if(isServerReachable()) {
+                        print("loadingMoreDataFromServer")
+                        self.loadData(5)
+                    }else{
+                        print("no internet no db saved")
                     }
-                    currentLoadedDataCount += 1
-                    self.mainTableView.endUpdates()
-                    ADActivityLoaderView.sharedInstance.removeLoader()
-                }else {
-                    print("db got no value left")
+                }else{
+                    print("loadingMoreDataFromDB")
+                    let models = converFirstFive(articlesFromDb!)
+                    if(models.count != 0) {
+                        instanceArticles = instanceArticles! + models
+                        self.mainTableView.beginUpdates()
+                        for index in (self.currentLoadedDataCount * 5 ..< (self.instanceArticles?.count ?? 0)) {
+                            self.mainTableView.insertRows(at: [IndexPath.init(row: index, section: 0)], with: UITableViewRowAnimation.fade)
+                        }
+                        currentLoadedDataCount += 1
+                        self.mainTableView.endUpdates()
+                        ADActivityLoaderView.sharedInstance.removeLoader()
+                    }else {
+                        print("db got no value left")
+                    }
                 }
             }
-            
         }
     }
 }
